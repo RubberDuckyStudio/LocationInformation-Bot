@@ -16,8 +16,15 @@ import java.util.List;
 public class GDS {
     String apiKey="X6RG20EXBIOOERD2YNTZDHK6XTCWNN3L";
 
+    public static void main(String[] args) {
+        List<City> test= new ArrayList<>();
+        test=getCityByLngLat(-122.084,37.3861);
+        System.out.println(test);
+    }
+
     public List<City> getCityByLngLat(double lng, double lat){
-        return jsonToCity(getCityByLngLat(lng,lat));
+        return jsonToCity(getCitiesInJSON(lng,lat));
+        //return new ArrayList<>();
     }
 
     public List<String> getCitiesInJSON(double lng, double lat){
@@ -47,6 +54,7 @@ public class GDS {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public List<City> jsonToCity(List<String> jsonCities){

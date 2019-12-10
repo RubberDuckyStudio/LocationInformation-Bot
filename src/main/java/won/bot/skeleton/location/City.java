@@ -48,5 +48,14 @@ public class City {
         this.region = region;
     }
 
-
+    @Override
+    public String toString() {
+        return "City{" +
+                "longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                ", region='" + region + '\'' +
+                '}';
+    }
 }

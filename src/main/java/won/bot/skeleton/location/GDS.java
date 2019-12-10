@@ -1,8 +1,9 @@
-package won.bot.skeleton;
+package won.bot.skeleton.location;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.jose4j.json.internal.json_simple.JSONObject;
+import won.bot.skeleton.City;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,12 +16,6 @@ import java.util.List;
 
 public class GDS {
     String apiKey="X6RG20EXBIOOERD2YNTZDHK6XTCWNN3L";
-
-    public static void main(String[] args) {
-        List<City> test= new ArrayList<>();
-        test=getCityByLngLat(-122.084,37.3861);
-        System.out.println(test);
-    }
 
     public List<City> getCityByLngLat(double lng, double lat){
         return jsonToCity(getCitiesInJSON(lng,lat));

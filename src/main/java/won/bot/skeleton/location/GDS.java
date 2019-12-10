@@ -54,17 +54,23 @@ public class GDS {
 
     public List<City> jsonToCity(List<String> jsonCities){
         List<City> ret= new ArrayList<>();
-        for (String str:jsonCities) {
-            City tmpCity=new City();
-            JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
+        try {
+            for (String str:jsonCities) {
+                //System.out.println("String: "+str+" anzCities:"+jsonCities.size());
 
-            tmpCity.setCountry(jsonObject.get("country").toString());
-            tmpCity.setName(jsonObject.get("city").toString());
-            tmpCity.setRegion(jsonObject.get("region").toString());
-            tmpCity.setLatitude(jsonObject.get("latitude").getAsDouble());
-            tmpCity.setLongitude(jsonObject.get("longitude").getAsDouble());
+                City tmpCity = new City();
+                JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
 
-            ret.add(tmpCity);
+                tmpCity.setCountry(jsonObject.get("country").toString());
+                tmpCity.setName(jsonObject.get("city").toString());
+                tmpCity.setRegion(jsonObject.get("region").toString());
+                tmpCity.setLatitude(jsonObject.get("latitude").getAsDouble());
+                tmpCity.setLongitude(jsonObject.get("longitude").getAsDouble());
+
+                ret.add(tmpCity);
+            }
+        }catch(UnsupportedOperationException e){
+            System.out.println("No city found");
         }
         return ret;
     }

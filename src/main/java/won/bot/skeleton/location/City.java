@@ -2,12 +2,20 @@ package won.bot.skeleton.location;
 
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class City {
     private double longitude;
     private double latitude;
     private String name;
     private String country;
     private String region;
+    private List<InterestingLocation> interestingLocations;
+
+    public City(){
+        interestingLocations = new ArrayList<>();
+    }
 
     private String englishName;
     private String capital;
@@ -73,6 +81,13 @@ public class City {
     public void setTimezones(List<String> timezones) {
         this.timezones = timezones;
     }
+    public List<InterestingLocation> getInterestingLocations() {
+        return interestingLocations;
+    }
+
+    public void setInterestingLocations(List<InterestingLocation> interestingLocations) {
+        this.interestingLocations = interestingLocations;
+    }
 
     public double getLongitude() {
         return longitude;
@@ -129,6 +144,7 @@ public class City {
                 ", callingCodes=" + callingCodes +
                 ", topLevelDomain='" + topLevelDomain + '\'' +
                 ", timezones=" + timezones +
+                ", interestingLocations=" + interestingLocations.toString() +
                 '}';
     }
 }

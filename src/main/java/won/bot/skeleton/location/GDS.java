@@ -23,7 +23,9 @@ public class GDS {
 
     public List<City> getCityByLngLat(double lng, double lat) {
         List<City> tmpList = jsonToCityFromGeoDataSource(getCitiesInJSONFromGeoDataSource(lng, lat));
+        tmpList = new ArrayList<>(new HashSet<>(tmpList));
         for (City tmpCity : tmpList) {
+            System.out.println("getCityByLngLat:"+tmpCity);
             jsonToCityFromRapidAPI(getMoreInfosFromRapidAPI(tmpCity.getCountry()), tmpCity);
         }
         return tmpList;

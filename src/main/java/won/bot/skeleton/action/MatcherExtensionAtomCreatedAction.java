@@ -109,6 +109,7 @@ public class MatcherExtensionAtomCreatedAction extends BaseEventBotAction {
     }
     */
     private String constructMessage(Coordinate coordinate) {
+        System.out.println("constructMessage");
         List<City> cityByLngLat = testGDS.getCityByLngLat(coordinate.getLongitude(), coordinate.getLatitude());
         return cityByLngLat.stream().map(City::toString).collect(Collectors.joining(", "));
     }

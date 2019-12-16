@@ -10,7 +10,7 @@ public class InterestingLocation {
     private float distance;
     private String fullUrl;
 
-    public InterestingLocation(){
+    public InterestingLocation() {
 
     }
 
@@ -50,9 +50,8 @@ public class InterestingLocation {
     public String toString() {
         return "InterestingLocation{" +
                 "title='" + title + '\'' +
-                ", wikiPageId='" + wikiPageId + '\'' +
                 ", distance=" + distance +
                 ", fullUrl='" + fullUrl + '\'' +
-                '}' + "\n";
+                '}';  //+ "\n"
     }
 }

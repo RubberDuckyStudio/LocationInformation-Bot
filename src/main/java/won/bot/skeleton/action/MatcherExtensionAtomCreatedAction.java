@@ -11,8 +11,8 @@ import won.bot.framework.eventbot.event.impl.command.connect.ConnectCommandEvent
 import won.bot.framework.eventbot.listener.EventListener;
 import won.bot.framework.extensions.matcher.MatcherExtensionAtomCreatedEvent;
 import won.bot.framework.extensions.serviceatom.ServiceAtomContext;
-import won.bot.skeleton.location.City;
 import won.bot.skeleton.context.SkeletonBotContextWrapper;
+import won.bot.skeleton.location.City;
 import won.bot.skeleton.location.GDS;
 import won.protocol.model.Coordinate;
 import won.protocol.util.DefaultAtomModelWrapper;

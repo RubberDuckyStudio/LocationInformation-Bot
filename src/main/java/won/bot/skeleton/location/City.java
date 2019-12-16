@@ -13,8 +13,8 @@ public class City {
     private String capital;
     private Integer population;
     private Integer area;
-    private List<Integer> callingCodes;
-    private String topLevelDomain;
+    private List<String> callingCodes;
+    private List<String> topLevelDomain;
     private List<String> timezones;
 
 
@@ -50,19 +50,19 @@ public class City {
         this.area = area;
     }
 
-    public List<Integer> getCallingCodes() {
+    public List<String> getCallingCodes() {
         return callingCodes;
     }
 
-    public void setCallingCodes(List<Integer> callingCodes) {
+    public void setCallingCodes(List<String> callingCodes) {
         this.callingCodes = callingCodes;
     }
 
-    public String getTopLevelDomain() {
+    public List<String> getTopLevelDomain() {
         return topLevelDomain;
     }
 
-    public void setTopLevelDomain(String topLevelDomain) {
+    public void setTopLevelDomain(List<String> topLevelDomain) {
         this.topLevelDomain = topLevelDomain;
     }
 

@@ -1,12 +1,11 @@
 package won.bot.skeleton.location;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import org.jose4j.json.internal.json_simple.JSONObject;
-import won.bot.skeleton.location.City;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +14,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GDS {
@@ -113,11 +111,28 @@ public class GDS {
             city.setCapital(jsonObject.get("capital").toString());
             city.setPopulation(jsonObject.get("population").getAsInt());
             city.setArea(jsonObject.get("area").getAsInt());
-            //TODO: sehr hässlich ....
-            //city.setCallingCodes(Collections.singletonList(Integer.valueOf(jsonObject.getAsJsonObject("callingCodes").get("0").toString())));
-            //city.setCallingCodes(Collections.singletonList(Integer.valueOf(jsonObject.getAsJsonObject("topLevelDomain").get("0").toString())));
-            //city.setCallingCodes(Collections.singletonList(Integer.valueOf(jsonObject.getAsJsonObject("timezones").get("0").toString())));
 
+            JsonArray jArray = jsonObject.getAsJsonArray("callingCodes");
+            List<String> tmpList = new ArrayList<>();
+            for (int i = 0; i < jArray.size(); i++) {
+                //System.out.println("Calling Code:"+jArray.get(i).getAsString());
+                tmpList.add(jArray.get(i).getAsString());
+            }
+            city.setCallingCodes(tmpList);
+
+            jArray = jsonObject.getAsJsonArray("topLevelDomain");
+            tmpList = new ArrayList<>();
+            for (int i = 0; i < jArray.size(); i++) {
+                tmpList.add(jArray.get(i).getAsString());
+            }
+            city.setTopLevelDomain(tmpList);
+
+            jArray = jsonObject.getAsJsonArray("timezones");
+            tmpList = new ArrayList<>();
+            for (int i = 0; i < jArray.size(); i++) {
+                tmpList.add(jArray.get(i).getAsString());
+            }
+            city.setTimezones(tmpList);
 
         }catch(UnsupportedOperationException e){
             System.out.println("No city found");

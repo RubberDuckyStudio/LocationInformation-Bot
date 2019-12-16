@@ -60,6 +60,8 @@ public class MatcherExtensionAtomCreatedAction extends BaseEventBotAction {
         }
         if (coordinate == null) return;
 
+        //String wetter=getWeather();
+
         ServiceAtomContext c = (ServiceAtomContext) ctx.getBotContextWrapper();
         URI myAtomURI = c.getServiceAtomUri();
         System.out.println("myAtomURI: " + myAtomURI);
@@ -91,6 +93,21 @@ public class MatcherExtensionAtomCreatedAction extends BaseEventBotAction {
         }
     }
 
+    /*
+    private String getWeather() {
+        //assuming
+        //   * wonNodeURI contains a valid WonNodeURI,
+        //   * atomURI has been newly created and conforms to the WoN node's URI pattern
+        WonMessageBuilder builder = WonMessageBuilder
+                .setMessagePropertiesForCreate(
+                        wonNodeInformationService.generateEventURI(wonNodeURI),              // generate an URI for the 'create Atom' event
+                        atomURI,                                                             // pass the new Atom URI
+                        wonNodeURI)                                                          // pass the WoN node URI
+                .addContent(atomModel, null);                                        // add the Atom's content
+        WonMessage message = builder.build();                                     // build the Message object
+        return getEventListenerContext().getWonMessageSender().sendWonMessage(message);  //send it
+    }
+    */
     private String constructMessage(Coordinate coordinate) {
         List<City> cityByLngLat = testGDS.getCityByLngLat(coordinate.getLongitude(), coordinate.getLatitude());
         return cityByLngLat.stream().map(City::toString).collect(Collectors.joining(", "));

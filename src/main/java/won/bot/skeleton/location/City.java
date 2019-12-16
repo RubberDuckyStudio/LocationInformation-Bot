@@ -1,4 +1,7 @@
-package won.bot.skeleton;
+package won.bot.skeleton.location;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class City {
     private double longitude;
@@ -6,7 +9,19 @@ public class City {
     private String name;
     private String country;
     private String region;
+    private List<InterestingLocation> interestingLocations;
 
+    public City(){
+        interestingLocations = new ArrayList<>();
+    }
+
+    public List<InterestingLocation> getInterestingLocations() {
+        return interestingLocations;
+    }
+
+    public void setInterestingLocations(List<InterestingLocation> interestingLocations) {
+        this.interestingLocations = interestingLocations;
+    }
 
     public double getLongitude() {
         return longitude;
@@ -56,6 +71,7 @@ public class City {
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", region='" + region + '\'' +
+                ", interestingLocations=" + interestingLocations.toString() +
                 '}';
     }
 }

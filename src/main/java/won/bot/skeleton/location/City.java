@@ -1,5 +1,7 @@
 package won.bot.skeleton.location;
 
+import java.util.List;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,70 @@ public class City {
         interestingLocations = new ArrayList<>();
     }
 
+    private String englishName;
+    private String capital;
+    private Integer population;
+    private Integer area;
+    private List<Integer> callingCodes;
+    private String topLevelDomain;
+    private List<String> timezones;
+
+
+    public String getEnglishName() {
+        return englishName;
+    }
+
+    public void setEnglishName(String englishName) {
+        this.englishName = englishName;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
+
+    public Integer getArea() {
+        return area;
+    }
+
+    public void setArea(Integer area) {
+        this.area = area;
+    }
+
+    public List<Integer> getCallingCodes() {
+        return callingCodes;
+    }
+
+    public void setCallingCodes(List<Integer> callingCodes) {
+        this.callingCodes = callingCodes;
+    }
+
+    public String getTopLevelDomain() {
+        return topLevelDomain;
+    }
+
+    public void setTopLevelDomain(String topLevelDomain) {
+        this.topLevelDomain = topLevelDomain;
+    }
+
+    public List<String> getTimezones() {
+        return timezones;
+    }
+
+    public void setTimezones(List<String> timezones) {
+        this.timezones = timezones;
+    }
     public List<InterestingLocation> getInterestingLocations() {
         return interestingLocations;
     }
@@ -71,6 +137,13 @@ public class City {
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", region='" + region + '\'' +
+                ", englishName='" + englishName + '\'' +
+                ", capital='" + capital + '\'' +
+                ", population=" + population +
+                ", area=" + area +
+                ", callingCodes=" + callingCodes +
+                ", topLevelDomain='" + topLevelDomain + '\'' +
+                ", timezones=" + timezones +
                 ", interestingLocations=" + interestingLocations.toString() +
                 '}';
     }
